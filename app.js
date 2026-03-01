@@ -15,6 +15,10 @@ function divide(a, b) {
     return a / b;
 }
 
-module.exports = {add, multiply};"// test again" 
+function subtract(a, b) {
+    return a - b;
+}
+
+module.exports = {add, multiply, divide, subtract};"// test again" 
 "// test again -2" 
 "// trigger again" 
