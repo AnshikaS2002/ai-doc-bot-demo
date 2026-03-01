@@ -1,6 +1,5 @@
 const axios = require("axios");
 const { execSync } = require("child_process");
-const fs = require("fs");
 
 async function run() {
   try {
@@ -15,16 +14,19 @@ async function run() {
     const prompt = `
 You are a documentation assistant.
 
-Based on the following git diff, generate an updated README for the project.
-Keep it clear and professional.
+Based on the following git diff, generate updated project documentation
+in CLEAN HTML format (no markdown).
+
+Use proper <h1>, <h2>, <p>, <ul>, <li> tags.
 
 Git Diff:
 ${diff}
 
-Return only the full updated README content.
+Return ONLY valid HTML content.
 `;
 
-    const response = await axios.post(
+    // 🔵 Call Gemini
+    const geminiResponse = await axios.post(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         contents: [
@@ -35,18 +37,52 @@ Return only the full updated README content.
       }
     );
 
-    const updatedReadme =
-      response.data.candidates[0].content.parts[0].text;
+    const updatedHtml =
+      geminiResponse.data.candidates[0].content.parts[0].text;
 
-    fs.writeFileSync("README.md", updatedReadme);
+    console.log("Generated HTML from Gemini.");
 
-    // execSync("git config user.name 'ai-doc-bot'");
-    // execSync("git config user.email 'bot@example.com'");
-    // execSync("git add README.md");
-    // execSync("git commit -m 'AI: Updated documentation (Gemini)'");
-    // execSync("git push");
+    // 🔵 Fetch current Confluence page
+    const pageResponse = await axios.get(
+      `${process.env.CONFLUENCE_BASE_URL}/wiki/rest/api/content/${process.env.CONFLUENCE_PAGE_ID}?expand=version`,
+      {
+        auth: {
+          username: process.env.CONFLUENCE_EMAIL,
+          password: process.env.CONFLUENCE_API_TOKEN
+        }
+      }
+    );
 
-    console.log("README updated successfully using Gemini.");
+    const currentVersion = pageResponse.data.version.number;
+    const pageTitle = pageResponse.data.title;
+
+    console.log("Current Confluence version:", currentVersion);
+
+    // 🔵 Update Confluence page
+    await axios.put(
+      `${process.env.CONFLUENCE_BASE_URL}/wiki/rest/api/content/${process.env.CONFLUENCE_PAGE_ID}`,
+      {
+        id: process.env.CONFLUENCE_PAGE_ID,
+        type: "page",
+        title: pageTitle,
+        version: { number: currentVersion + 1 },
+        body: {
+          storage: {
+            value: updatedHtml,
+            representation: "storage"
+          }
+        }
+      },
+      {
+        auth: {
+          username: process.env.CONFLUENCE_EMAIL,
+          password: process.env.CONFLUENCE_API_TOKEN
+        }
+      }
+    );
+
+    console.log("Confluence page updated successfully 🚀");
+
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);
   }
