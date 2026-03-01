@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AnshikaS2002/ai-doc-bot-demo/issues"
   },
-  "homepage": "https://github.com/AnshikaS2002/ai-doc-bot-demo#readme"
+  "homepage": "https://github.com/AnshikaS2002/ai-doc-bot-demo#readme",
+  "dependencies": {
+    "axios": "^1.13.6"
+  }
 }
