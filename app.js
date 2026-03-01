@@ -47,3 +47,4 @@ module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber
 "// PR mode test"
 "//added mod function as well" 
 "// final test PR" 
+"// clean PR test" 
