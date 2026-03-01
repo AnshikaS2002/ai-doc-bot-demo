@@ -40,11 +40,11 @@ Return only the full updated README content.
 
     fs.writeFileSync("README.md", updatedReadme);
 
-    execSync("git config user.name 'ai-doc-bot'");
-    execSync("git config user.email 'bot@example.com'");
-    execSync("git add README.md");
-    execSync("git commit -m 'AI: Updated documentation (Gemini)'");
-    execSync("git push");
+    // execSync("git config user.name 'ai-doc-bot'");
+    // execSync("git config user.email 'bot@example.com'");
+    // execSync("git add README.md");
+    // execSync("git commit -m 'AI: Updated documentation (Gemini)'");
+    // execSync("git push");
 
     console.log("README updated successfully using Gemini.");
   } catch (error) {
