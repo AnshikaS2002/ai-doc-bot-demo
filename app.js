@@ -48,3 +48,4 @@ module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber
 "//added mod function as well" 
 "// final test PR" 
 "// clean PR test" 
+"// confluence test" 
