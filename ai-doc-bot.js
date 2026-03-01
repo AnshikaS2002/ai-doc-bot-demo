@@ -25,31 +25,28 @@ Return only the full updated README content.
 `;
 
     const response = await axios.post(
-      "https://api.openai.com/v1/chat/completions",
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
-        model: "gpt-4o-mini",
-        messages: [{ role: "user", content: prompt }],
-        temperature: 0.2,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-          "Content-Type": "application/json",
-        },
+        contents: [
+          {
+            parts: [{ text: prompt }]
+          }
+        ]
       }
     );
 
-    const updatedReadme = response.data.choices[0].message.content;
+    const updatedReadme =
+      response.data.candidates[0].content.parts[0].text;
 
     fs.writeFileSync("README.md", updatedReadme);
 
     execSync("git config user.name 'ai-doc-bot'");
     execSync("git config user.email 'bot@example.com'");
     execSync("git add README.md");
-    execSync("git commit -m 'AI: Updated documentation'");
+    execSync("git commit -m 'AI: Updated documentation (Gemini)'");
     execSync("git push");
 
-    console.log("README updated successfully.");
+    console.log("README updated successfully using Gemini.");
   } catch (error) {
     console.error("Error:", error.response?.data || error.message);
   }
