@@ -23,7 +23,11 @@ function mod(a, b) {
     return a % b;
 }
 
-module.exports = {add, multiply, divide, subtract, mod};"// test again" 
+function doubleNumber(a) {
+    console.log("This is a miscellaneous function.");
+    return a * 2;
+}
+module.exports = {add, multiply, divide, subtract, mod, doubleNumber};"// test again" 
 "// test again -2" 
 "// trigger again" 
 "// PR mode test"
