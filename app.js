@@ -38,7 +38,10 @@ function exponent(a, b) {
     return a ** b;
 }
 
-module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber, exponent};"// test again" 
+function thrice(a) {
+    return 3 * a;
+}
+module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber, exponent, thrice};"// test again" 
 "// test again -2" 
 "// trigger again" 
 "// PR mode test"
