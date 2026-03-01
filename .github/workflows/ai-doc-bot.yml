@@ -1,0 +1,14 @@
+name: AI Documentation Bot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print message
+        run: echo "Workflow is working successfully!"
