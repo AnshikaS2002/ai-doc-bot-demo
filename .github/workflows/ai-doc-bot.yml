@@ -6,9 +6,24 @@ on:
       - main
 
 jobs:
-  test-run:
+  update-docs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print message
-        run: echo "Workflow is working successfully!"
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install axios
+
+      - name: Run AI Documentation Script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node ai-doc-bot.js
