@@ -32,7 +32,13 @@ function halfNumber(a) {
     console.log("This is a miscellaneous function.");
     return a / 2;
 }
-module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber};"// test again" 
+
+function exponent(a, b) {
+    console.log("This is a miscellaneous function.");
+    return a ** b;
+}
+
+module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber, exponent};"// test again" 
 "// test again -2" 
 "// trigger again" 
 "// PR mode test"
