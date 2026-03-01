@@ -50,3 +50,4 @@ module.exports = {add, multiply, divide, subtract, mod, doubleNumber, halfNumber
 "// clean PR test" 
 "// confluence test" 
 "// confluence retry" 
+"//added PR plus confluence combination"
