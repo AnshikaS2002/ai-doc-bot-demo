@@ -7,7 +7,8 @@ on:
   push:
     branches:
       - main
-    paths: -"app.js"
+    paths:
+      - "app.js"
 
 jobs:
   update-docs:
