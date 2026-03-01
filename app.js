@@ -19,6 +19,11 @@ function subtract(a, b) {
     return a - b;
 }
 
-module.exports = {add, multiply, divide, subtract};"// test again" 
+function mod(a, b) {
+    return a % b;
+}
+
+module.exports = {add, multiply, divide, subtract, mod};"// test again" 
 "// test again -2" 
 "// trigger again" 
+"// PR mode test"
