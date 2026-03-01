@@ -1,56 +1,51 @@
 # Math Utilities
 
-A simple, lightweight JavaScript library for performing basic mathematical operations.
+A lightweight Node.js library for basic mathematical operations.
 
 ## Features
 
-This library provides a collection of utility functions for common arithmetic tasks:
+This library provides a set of simple functions to handle common arithmetic tasks:
 
-- **Addition (`add`)**: Returns the sum of two numbers.
-- **Subtraction (`subtract`)**: Returns the difference between two numbers.
-- **Multiplication (`multiply`)**: Returns the product of two numbers.
-- **Division (`divide`)**: Returns the quotient of two numbers.
-- **Modulo (`mod`)**: Returns the remainder after division.
-- **Double (`doubleNumber`)**: Multiplies a given number by two.
-- **Half (`halfNumber`)**: Divides a given number by two.
+- **Addition**: Add two numbers together.
+- **Subtraction**: Subtract one number from another.
+- **Multiplication**: Multiply two numbers.
+- **Division**: Divide one number by another.
+- **Modulo**: Find the remainder after division.
+- **Double**: Quickly multiply a number by two.
+- **Half**: Quickly divide a number by two.
 
 ## Installation
 
-Clone the repository and include `app.js` in your project:
-
 ```bash
-git clone <repository-url>
+npm install
 ```
 
 ## Usage
 
-You can import the utility functions into your Node.js project as follows:
+Import the required functions from the module:
 
 ```javascript
-const { 
-    add, 
-    subtract, 
-    multiply, 
-    divide, 
-    mod, 
-    doubleNumber, 
-    halfNumber 
-} = require('./app');
+const { add, multiply, mod, doubleNumber, halfNumber } = require('./app');
 
-console.log(add(5, 3));         // Output: 8
-console.log(mod(10, 3));        // Output: 1
-console.log(doubleNumber(10));  // Output: 20
+console.log(add(10, 5));          // 15
+console.log(multiply(10, 5));     // 50
+console.log(mod(10, 3));          // 1
+console.log(doubleNumber(10));    // 20
+console.log(halfNumber(10));      // 5
 ```
 
-## Development
+## API Reference
 
-The project includes basic exported functions within `app.js` and is configured for simple integration and testing.
-
-### Recent Updates
-- Added `mod` function for remainder calculations.
-- Included `doubleNumber` and `halfNumber` utilities.
-- General maintenance and PR testing.
+| Function | Description |
+| :--- | :--- |
+| `add(a, b)` | Returns the sum of `a` and `b`. |
+| `subtract(a, b)` | Returns the difference between `a` and `b`. |
+| `multiply(a, b)` | Returns the product of `a` and `b`. |
+| `divide(a, b)` | Returns the quotient of `a` divided by `b`. |
+| `mod(a, b)` | Returns the remainder of `a` divided by `b`. |
+| `doubleNumber(n)` | Multiplies `n` by 2. |
+| `halfNumber(n)` | Divides `n` by 2. |
 
 ## License
 
-This project is open-source and available under the MIT License.
+MIT
