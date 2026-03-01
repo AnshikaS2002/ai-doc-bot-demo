@@ -3,3 +3,7 @@ function add(a, b) {
 }"// change" 
 
 module.exports = {add};
+
+function multiply(a, b) {
+    return a * b;
+}
