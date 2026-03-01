@@ -1,58 +1,46 @@
-# AI Documentation Bot
+# Math Operations Library
 
-AI Documentation Bot is an automated tool designed to keep your project's documentation synchronized with your codebase using artificial intelligence. It monitors repository changes and automatically updates relevant documentation files, ensuring your technical debt remains low and your documentation remains accurate.
+A simple and efficient Node.js module for performing basic arithmetic calculations.
 
 ## Features
 
-- **Automated Updates**: Automatically triggers documentation refreshes on every push to the main branch.
-- **AI-Powered Analysis**: Utilizes advanced language models to understand code changes and reflect them in the README and other documentation.
-- **Seamless Integration**: Runs entirely within GitHub Actions.
+- **Addition**: Sum two numbers.
+- **Subtraction**: Calculate the difference between two numbers.
+- **Multiplication**: Find the product of two numbers.
+- **Division**: Calculate the quotient of two numbers.
 
-## Setup and Configuration
+## Installation
 
-To use the AI Documentation Bot in your repository, you must configure a GitHub Actions workflow.
-
-### Permissions
-
-For the bot to successfully commit documentation updates back to your repository, the workflow requires explicit write permissions. Ensure your `.github/workflows/ai-doc-bot.yml` includes the following configuration:
-
-```yaml
-permissions:
-  contents: write
+```bash
+npm install
 ```
 
-### Workflow Example
+## Usage
 
-```yaml
-name: AI Documentation Bot
+You can import the functions directly from the `app.js` module:
 
-permissions:
-  contents: write
+```javascript
+const { add, subtract, multiply, divide } = require('./app');
 
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  update-documentation:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Run AI Documentation Bot
-        # Add the specific bot action and configuration here
-        ...
+console.log(add(10, 5));       // Output: 15
+console.log(subtract(10, 5));  // Output: 5
+console.log(multiply(10, 5));  // Output: 50
+console.log(divide(10, 5));    // Output: 2
 ```
 
-## How It Works
+## API Reference
 
-1. **Trigger**: The bot activates based on the events defined in your workflow (e.g., `push`).
-2. **Analysis**: The system analyzes the diff between the current commit and the previous state.
-3. **Generation**: An AI model generates updated documentation text based on the detected changes.
-4. **Commit**: The bot commits the updated documentation directly to the repository using the `contents: write` permission.
+### `add(a, b)`
+Returns the sum of `a` and `b`.
 
-## Security
+### `subtract(a, b)`
+Returns the result of `a` minus `b`.
 
-This bot requires `contents: write` access to modify documentation files. It is recommended to limit the scope of this permission to only the necessary workflows and branches to maintain repository security.
+### `multiply(a, b)`
+Returns the product of `a` and `b`.
+
+### `divide(a, b)`
+Returns the result of `a` divided by `b`.
+
+## License
+MIT
