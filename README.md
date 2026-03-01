@@ -1,46 +1,56 @@
-# Math Operations Library
+# Math Utilities
 
-A simple and efficient Node.js module for performing basic arithmetic calculations.
+A simple, lightweight JavaScript library for performing basic mathematical operations.
 
 ## Features
 
-- **Addition**: Sum two numbers.
-- **Subtraction**: Calculate the difference between two numbers.
-- **Multiplication**: Find the product of two numbers.
-- **Division**: Calculate the quotient of two numbers.
+This library provides a collection of utility functions for common arithmetic tasks:
+
+- **Addition (`add`)**: Returns the sum of two numbers.
+- **Subtraction (`subtract`)**: Returns the difference between two numbers.
+- **Multiplication (`multiply`)**: Returns the product of two numbers.
+- **Division (`divide`)**: Returns the quotient of two numbers.
+- **Modulo (`mod`)**: Returns the remainder after division.
+- **Double (`doubleNumber`)**: Multiplies a given number by two.
+- **Half (`halfNumber`)**: Divides a given number by two.
 
 ## Installation
 
+Clone the repository and include `app.js` in your project:
+
 ```bash
-npm install
+git clone <repository-url>
 ```
 
 ## Usage
 
-You can import the functions directly from the `app.js` module:
+You can import the utility functions into your Node.js project as follows:
 
 ```javascript
-const { add, subtract, multiply, divide } = require('./app');
+const { 
+    add, 
+    subtract, 
+    multiply, 
+    divide, 
+    mod, 
+    doubleNumber, 
+    halfNumber 
+} = require('./app');
 
-console.log(add(10, 5));       // Output: 15
-console.log(subtract(10, 5));  // Output: 5
-console.log(multiply(10, 5));  // Output: 50
-console.log(divide(10, 5));    // Output: 2
+console.log(add(5, 3));         // Output: 8
+console.log(mod(10, 3));        // Output: 1
+console.log(doubleNumber(10));  // Output: 20
 ```
 
-## API Reference
+## Development
 
-### `add(a, b)`
-Returns the sum of `a` and `b`.
+The project includes basic exported functions within `app.js` and is configured for simple integration and testing.
 
-### `subtract(a, b)`
-Returns the result of `a` minus `b`.
-
-### `multiply(a, b)`
-Returns the product of `a` and `b`.
-
-### `divide(a, b)`
-Returns the result of `a` divided by `b`.
+### Recent Updates
+- Added `mod` function for remainder calculations.
+- Included `doubleNumber` and `halfNumber` utilities.
+- General maintenance and PR testing.
 
 ## License
-MIT
+
+This project is open-source and available under the MIT License.
