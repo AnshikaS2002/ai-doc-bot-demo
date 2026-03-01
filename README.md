@@ -1,13 +1,6 @@
-# Math Operations Library
+# Math Utilities
 
-A simple and efficient Node.js module for performing basic arithmetic calculations.
-
-## Features
-
-- **Addition**: Sum two numbers.
-- **Subtraction**: Calculate the difference between two numbers.
-- **Multiplication**: Find the product of two numbers.
-- **Division**: Calculate the quotient of two numbers.
+A simple Node.js utility library providing basic arithmetic and numerical operations.
 
 ## Installation
 
@@ -17,30 +10,30 @@ npm install
 
 ## Usage
 
-You can import the functions directly from the `app.js` module:
-
 ```javascript
-const { add, subtract, multiply, divide } = require('./app');
+const math = require('./app');
 
-console.log(add(10, 5));       // Output: 15
-console.log(subtract(10, 5));  // Output: 5
-console.log(multiply(10, 5));  // Output: 50
-console.log(divide(10, 5));    // Output: 2
+// Basic arithmetic
+console.log(math.add(10, 5));      // 15
+console.log(math.subtract(10, 5)); // 5
+
+// Miscellaneous operations
+console.log(math.doubleNumber(10)); // 20
+console.log(math.halfNumber(10));   // 5
 ```
 
 ## API Reference
 
-### `add(a, b)`
-Returns the sum of `a` and `b`.
+### Arithmetic Functions
+- `add(a, b)`: Returns the sum of two numbers.
+- `subtract(a, b)`: Returns the difference between two numbers.
+- `multiply(a, b)`: Returns the product of two numbers.
+- `divide(a, b)`: Returns the quotient of two numbers.
+- `mod(a, b)`: Returns the remainder (modulo) of the division of two numbers.
 
-### `subtract(a, b)`
-Returns the result of `a` minus `b`.
-
-### `multiply(a, b)`
-Returns the product of `a` and `b`.
-
-### `divide(a, b)`
-Returns the result of `a` divided by `b`.
+### Miscellaneous Functions
+- `doubleNumber(a)`: Takes a number and returns it multiplied by 2.
+- `halfNumber(a)`: Takes a number and returns it divided by 2.
 
 ## License
 MIT
